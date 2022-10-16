@@ -1,5 +1,5 @@
 {
-  "name": "loan",
+  "name": "lending",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,7 +7,7 @@
     "start": "gulp",
     "build": "gulp build-prod-js"
   },
-  "author": "",
+  "author": "wopnis",
   "license": "ISC",
   "browserslist": [
     "> 1%",

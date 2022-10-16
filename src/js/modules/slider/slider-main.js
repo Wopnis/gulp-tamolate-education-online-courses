@@ -1,9 +1,8 @@
-export default class Slider {
+import Slider from './slider';
+
+export default class MainSlider extends Slider {
   constructor(page, btns) {
-    this.page = document.querySelector(page);
-    this.slides = this.page.children;
-    this.btns = document.querySelectorAll(btns);
-    this.slideIndex = 1;
+    super(page, btns);
   }
 
   showSlides(n) {
@@ -47,10 +46,6 @@ export default class Slider {
     Array.from(this.slides).forEach((slide) => {
       slide.style.display = 'none';
     });
-
-    // this.slides.forEach((slide) => {
-    //   slide.style.display = 'none';
-    // });
 
     this.slides[this.slideIndex - 1].style.display = 'block';
   }
