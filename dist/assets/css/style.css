@@ -436,7 +436,7 @@ a:active {
   line-height: normal;
   font-size: 24px;
   letter-spacing: -.48px;
-  color: #fff;
+  color: rgb(202, 213, 245);
   margin-top: 12px;
   opacity: .4;
   transition: .5s all
@@ -671,7 +671,7 @@ a:active {
   position: relative;
   width: 43px;
   height: 43px;
-  border: 2px solid #eaeaea;
+  border: 2px solid #77d0f3;
   border-radius: 100%;
   background-color: transparent;
   cursor: pointer;
@@ -696,7 +696,7 @@ a:active {
   position: relative;
   width: 43px;
   height: 43px;
-  border: 2px solid #eaeaea;
+  border: 2px solid #77d0f3;
   border-radius: 100%;
   background-color: transparent;
   cursor: pointer
@@ -852,7 +852,7 @@ a:active {
   line-height: normal;
   font-size: 24px;
   letter-spacing: -.48px;
-  color: #fff;
+  color: rgb(202, 213, 245);
   margin-top: 12px;
   opacity: .4;
   transition: .5s all
