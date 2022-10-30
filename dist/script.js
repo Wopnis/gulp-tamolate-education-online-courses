@@ -1254,6 +1254,12 @@ window.addEventListener('DOMContentLoaded', () => {
     container: '.page'
   });
   slider.render();
+  const modulePageSlider = new _modules_slider_slider_main__WEBPACK_IMPORTED_MODULE_0__["default"]({
+    container: '.moduleapp',
+    btns: '.next',
+    animate: true
+  });
+  modulePageSlider.render();
   const showUpSlider = new _modules_slider_slider_mini__WEBPACK_IMPORTED_MODULE_1__["default"]({
     container: '.showup__content-slider',
     prev: '.showup__prev',
@@ -1298,12 +1304,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Difference; });
 class Difference {
   constructor(oldOfficer, newOfficer, items) {
-    this.newOfficer = document.querySelector(newOfficer);
-    this.oldOfficer = document.querySelector(oldOfficer);
-    this.oldItems = this.oldOfficer.querySelectorAll(items);
-    this.newItems = this.newOfficer.querySelectorAll(items);
-    this.oldCounter = 0;
-    this.newCounter = 0;
+    try {
+      this.newOfficer = document.querySelector(newOfficer);
+      this.oldOfficer = document.querySelector(oldOfficer);
+      this.oldItems = this.oldOfficer.querySelectorAll(items);
+      this.newItems = this.newOfficer.querySelectorAll(items);
+      this.oldCounter = 0;
+      this.newCounter = 0;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   bindTriggers(container, items, counter) {
@@ -1327,10 +1337,14 @@ class Difference {
   }
 
   init() {
-    this.hideItems(this.oldItems);
-    this.hideItems(this.newItems);
-    this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
-    this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
+    try {
+      this.hideItems(this.oldItems);
+      this.hideItems(this.newItems);
+      this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
+      this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
 }
@@ -1596,19 +1610,7 @@ class MainSlider extends _slider__WEBPACK_IMPORTED_MODULE_0__["default"] {
     this.showSlides(this.slideIndex += n);
   }
 
-  render() {
-    try {
-      this.hanson = document.querySelector('.hanson');
-    } catch (error) {
-      console.log(error);
-    }
-
-    try {
-      this.content = document.querySelector('.modules__content-slider');
-    } catch (error) {
-      console.log(error);
-    }
-
+  bindTriggers() {
     this.btns.forEach(item => {
       item.addEventListener('click', () => {
         this.plusSlides(1);
@@ -1619,7 +1621,39 @@ class MainSlider extends _slider__WEBPACK_IMPORTED_MODULE_0__["default"] {
         this.showSlides(this.slideIndex);
       });
     });
-    this.showSlides(this.slideIndex);
+    document.querySelectorAll('.prevmodule').forEach(item => {
+      item.addEventListener('click', e => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.plusSlides(-1);
+      });
+    });
+    document.querySelectorAll('.nextmodule').forEach(item => {
+      item.addEventListener('click', e => {
+        e.stopPropagation();
+        e.preventDefault();
+        this.plusSlides(1);
+      });
+    });
+  }
+
+  render() {
+    if (this.container) {
+      try {
+        this.hanson = document.querySelector('.hanson');
+      } catch (error) {
+        console.log(error);
+      }
+
+      try {
+        this.content = document.querySelector('.modules__content-slider');
+      } catch (error) {
+        console.log(error);
+      }
+
+      this.showSlides(this.slideIndex);
+      this.bindTriggers();
+    }
   }
 
 }
@@ -1694,19 +1728,23 @@ class MiniSlider extends _slider__WEBPACK_IMPORTED_MODULE_0__["default"] {
   }
 
   init() {
-    this.container.style.cssText = `
+    try {
+      this.container.style.cssText = `
 				display: flex;
 				flex-wrap: wrap;
 				overflow: hidden;
 				align-items: flex-start;
 		`;
-    this.bindTriggers();
-    this.decorizeSlides();
+      this.bindTriggers();
+      this.decorizeSlides();
 
-    if (this.autoplay) {
-      setInterval(() => {
-        this.nextSlide();
-      }, 5000);
+      if (this.autoplay) {
+        setInterval(() => {
+          this.nextSlide();
+        }, 5000);
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
 
@@ -1735,7 +1773,13 @@ class Slider {
     autoplay
   } = {}) {
     this.container = document.querySelector(container);
-    this.slides = this.container.children;
+
+    try {
+      this.slides = this.container.children;
+    } catch (error) {
+      console.log(error);
+    }
+
     this.btns = document.querySelectorAll(btns);
     this.slideIndex = 1;
     this.next = document.querySelector(next);

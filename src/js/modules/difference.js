@@ -1,37 +1,45 @@
 export default class Difference {
-  constructor(oldOfficer, newOfficer, items) {
-    this.newOfficer = document.querySelector(newOfficer);
-    this.oldOfficer = document.querySelector(oldOfficer);
-    this.oldItems = this.oldOfficer.querySelectorAll(items);
-    this.newItems = this.newOfficer.querySelectorAll(items);
-    this.oldCounter = 0;
-    this.newCounter = 0;
-  }
+	constructor(oldOfficer, newOfficer, items) {
+		try {
+			this.newOfficer = document.querySelector(newOfficer);
+			this.oldOfficer = document.querySelector(oldOfficer);
+			this.oldItems = this.oldOfficer.querySelectorAll(items);
+			this.newItems = this.newOfficer.querySelectorAll(items);
+			this.oldCounter = 0;
+			this.newCounter = 0;
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
-  bindTriggers(container, items, counter) {
-    container.querySelector('.plus').addEventListener('click', () => {
-      if (counter !== items.length - 2) {
-        items[counter].style.display = 'flex';
-        counter++;
-      } else {
-        items[counter].style.display = 'flex';
-        items[items.length - 1].remove();
-      }
-    });
-  }
+	bindTriggers(container, items, counter) {
+		container.querySelector('.plus').addEventListener('click', () => {
+			if (counter !== items.length - 2) {
+				items[counter].style.display = 'flex';
+				counter++;
+			} else {
+				items[counter].style.display = 'flex';
+				items[items.length - 1].remove();
+			}
+		});
+	}
 
-  hideItems(cards) {
-    cards.forEach((item, index, array) => {
-      if (index !== array.length - 1) {
-        item.style.display = 'none';
-      }
-    });
-  }
+	hideItems(cards) {
+		cards.forEach((item, index, array) => {
+			if (index !== array.length - 1) {
+				item.style.display = 'none';
+			}
+		});
+	}
 
-  init() {
-    this.hideItems(this.oldItems);
-    this.hideItems(this.newItems);
-    this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
-    this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
-  }
+	init() {
+		try {
+			this.hideItems(this.oldItems);
+			this.hideItems(this.newItems);
+			this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
+			this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 }
