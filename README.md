@@ -1,1 +1,1 @@
-# gulp-tamolate-education-online-courses
+# gulp-tamplate-education-online-courses
