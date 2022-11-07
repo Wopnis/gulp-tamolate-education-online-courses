@@ -25,7 +25,7 @@ export default class MainSlider extends Slider {
 				this.hanson.classList.remove('slideInUp');
 			}
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 
 		try {
@@ -40,7 +40,7 @@ export default class MainSlider extends Slider {
 				this.content.classList.remove('slideInUp');
 			}
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 
 		Array.from(this.slides).forEach(slide => {
@@ -88,13 +88,13 @@ export default class MainSlider extends Slider {
 			try {
 				this.hanson = document.querySelector('.hanson');
 			} catch (error) {
-				console.log(error);
+				// console.log(error);
 			}
 
 			try {
 				this.content = document.querySelector('.modules__content-slider');
 			} catch (error) {
-				console.log(error);
+				// console.log(error);
 			}
 			this.showSlides(this.slideIndex);
 

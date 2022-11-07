@@ -8,7 +8,7 @@ export default class Difference {
 			this.oldCounter = 0;
 			this.newCounter = 0;
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 	}
 
@@ -39,7 +39,7 @@ export default class Difference {
 			this.bindTriggers(this.oldOfficer, this.oldItems, this.oldCounter);
 			this.bindTriggers(this.newOfficer, this.newItems, this.newCounter);
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 	}
 }

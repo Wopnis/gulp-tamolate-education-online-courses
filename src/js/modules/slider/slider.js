@@ -12,7 +12,7 @@ export default class Slider {
 		try {
 			this.slides = this.container.children;
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 		this.btns = document.querySelectorAll(btns);
 		this.slideIndex = 1;

@@ -28,6 +28,10 @@ a:active {
   text-decoration: none;
   color: inherit
 }
+
+.d-none {
+  display: none;
+}
 .title {
   font-weight: 900;
   font-size: 58px;
